@@ -5,4 +5,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/quran', QuranController::class);
+
+Route::get('/quran', [QuranController::class, 'index'])->name('quran.index');
+Route::get('/quran/{nomor}', [QuranController::class, 'show'])->name('quran.show');

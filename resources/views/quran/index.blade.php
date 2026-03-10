@@ -11,7 +11,10 @@
         @foreach($surats as $surat)
         <tr>
             <td>{{ $surat['nomor'] }}</td>
-            <td>{{ $surat['namaLatin'] }} ({{ $surat['nama'] }})</td>
+         <a href={{route('quran.show', $surat['nomor'] )}}>
+               {{ $surat['namaLatin'] }} 
+         </a>
+         <td>({{ $surat['nama'] }})</td>
             <td>{{ $surat['arti'] }}</td>
             <td>{{ $surat['jumlahAyat'] }}</td>
         </tr>
