@@ -22,11 +22,14 @@
     <p><em>{{ $surat['arti'] }} - {{ $surat['jumlahAyat'] }} Ayat</em></p>
     <hr>
 
-    @if($surat['nomor'] != 1 && $surat['nomor'] != 9)
+
         <h3 class="text-center" style="font-family: 'serif'; margin-bottom: 30px;">
-            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+            {{$surat['deskripsi']}}
         </h3>
-    @endif
+   <audio controls>
+    <source src="{{ $surat['audioFull']['06'] }}" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
 @foreach($surat['ayat'] as $ayat)
     <div style="margin-bottom: 50px;">
@@ -40,6 +43,7 @@
         <p style="color: green;"><em>{!! $ayat['teksLatin'] !!}</em></p>
         
         <p>{{ $ayat['teksIndonesia'] }}</p>
+     
     </div>
     <hr>
 @endforeach

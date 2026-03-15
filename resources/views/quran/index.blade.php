@@ -18,7 +18,10 @@
          </td>
             <td>{{ $surat['arti'] }}</td>
             <td>{{ $surat['jumlahAyat'] }}</td>
+            
         </tr>
+    
+
         @endforeach
     </tbody>
 </table>
