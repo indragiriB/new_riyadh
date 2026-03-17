@@ -9,20 +9,16 @@ class QuranController extends Controller
 {
     public function index(): View
     {
-        // 1. Melakukan request GET ke API
-        $response = Http::get('https://equran.id/api/v2/surat');
+        $baseUrl = config('services.equran.url');
 
-        // 2. Mengecek apakah request berhasil
-        if ($response->successful()) {
-            // Mengambil bagian 'data' dari JSON (karena API v2 membungkusnya dalam status wrapper)
-            $surats = $response->json()['data'];
-        } else {
-            // Jika gagal, berikan array kosong atau tangani errornya
-            $surats = [];
-        }
+    $response = Http::get("{$baseUrl}/surat");
 
-        // 3. Mengirim data ke view
+    if ($response->successful()) {
+        $surats = $response->json()['data'];
         return view('quran.index', compact('surats'));
+    }
+
+    return back()->with('error', 'Gagal memuat data.');
     }
 
     public function show($nomor){

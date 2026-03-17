@@ -34,5 +34,8 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'equran' => [
+    'url' => env('EQURAN_API_URL'),
+],
 
 ];
