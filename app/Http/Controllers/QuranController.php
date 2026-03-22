@@ -2,32 +2,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http; // Import library HTTP Client
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Http;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class QuranController extends Controller
 {
-    public function index(): View
+    public function index(): Response
     {
         $baseUrl = config('services.equran.url');
+        $response = Http::get("{$baseUrl}/surat");
 
-    $response = Http::get("{$baseUrl}/surat");
+        $surats = $response->successful() ? $response->json()['data'] : [];
 
-    if ($response->successful()) {
-        $surats = $response->json()['data'];
-        return view('quran.index', compact('surats'));
+        return Inertia::render('Quran/Index', [
+            'surats' => $surats
+        ]);
     }
 
-    return back()->with('error', 'Gagal memuat data.');
-    }
+    public function show($nomor): Response
+    {
+        $baseUrl = config('services.equran.url');
+        $response = Http::get("{$baseUrl}/surat/{$nomor}");
 
-    public function show($nomor){
-        $response = Http::get("https://equran.id/api/v2/surat/{$nomor}");
-       if ($response->successful()) {
-        $surat = $response->json()['data'];
-        return view('quran.show', compact('surat'));
-    }
+        if ($response->successful()) {
+            return Inertia::render('Quran/Show', [
+                'surat' => $response->json()['data']
+            ]);
+        }
 
-    abort(404, 'Surat tidak ditemukan');
+        abort(404, 'Surat tidak ditemukan');
     }
 }
