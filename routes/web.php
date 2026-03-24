@@ -21,7 +21,7 @@ Route::get('/dashboard', function () {
 
 
 // Halaman Daftar Surat
-Route::get('/quran', [QuranController::class, 'index'])->name('quran.index');
+Route::get('/', [QuranController::class, 'index'])->name('quran.index');
 
 // Halaman Isi Surat
 Route::get('/quran/{nomor}', [QuranController::class, 'show'])->name('quran.show');

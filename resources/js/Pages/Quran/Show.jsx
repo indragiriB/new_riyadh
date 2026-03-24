@@ -3,10 +3,10 @@ import { Head, Link } from '@inertiajs/react';
 
 export default function Show({ surat }) {
     return (
-        <div className="max-w-4xl mx-auto p-6 bg-white min-h-screen shadow-lg">
+        <div className="max-w-4xl mx-auto  min-h-screen ">
             <Head title={surat.namaLatin} />
             
-            <Link href="/quran" className="text-green-600 hover:underline mb-4 inline-block">
+            <Link href="/" className="text-green-600 hover:underline mb-4 inline-block">
                 ← Kembali ke Daftar Surat
             </Link>
 
@@ -26,9 +26,9 @@ export default function Show({ surat }) {
                             <span className="w-8 h-8 flex-shrink-0 flex items-center justify-center border border-gray-300 rounded-full text-sm">
                                 {a.nomorAyat}
                             </span>
-                            <h2 className="text-4xl text-right leading-[3.5rem] font-serif" dir="rtl">
-                                {a.teksArab}
-                            </h2>
+              <h2 className="text-5xl text-right leading-[4.5rem] font-arabic mb-4">
+                     {a.teksArab}
+                    </h2>
                         </div>
                         <div className="space-y-2">
                             <p className="text-green-700 italic text-sm">{a.teksLatin}</p>
