@@ -15,7 +15,7 @@ export default function Show({ surat }) {
                 <p className="text-gray-600 italic">{surat.arti} • {surat.jumlahAyat} Ayat</p>
                 
                 <audio controls className="mx-auto mt-6 w-full max-w-md">
-                    <source src={surat.audioFull['01']} type="audio/mpeg" />
+                    <source src={surat.audioFull['02']} type="audio/mpeg" />
                 </audio>
             </div>
 
@@ -26,7 +26,7 @@ export default function Show({ surat }) {
                             <span className="w-8 h-8 flex-shrink-0 flex items-center justify-center border border-gray-300 rounded-full text-sm">
                                 {a.nomorAyat}
                             </span>
-              <h2 className="text-5xl text-right leading-[4.5rem] font-arabic mb-4">
+              <h2 className="text-5xl text-right leading-[4.5rem] font-arabic mb-4 tracking-wider leading-loose">
                      {a.teksArab}
                     </h2>
                         </div>
