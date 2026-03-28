@@ -70,11 +70,11 @@ export default function Welcome() {
                             <div className="space-y-12">
                                 <div className="flex justify-between items-start">
                                     <span className="text-[10px] text-emerald-500 border border-emerald-500/30 px-2 py-1">SURAT_18</span>
-                                    <span className="text-4xl font-serif text-white opacity-40 group-hover:opacity-100 transition-opacity">الكهف</span>
+                                    <span className="text-4xl font-arabic text-white opacity-40 group-hover:opacity-100 transition-opacity">الكهف</span>
                                 </div>
 
                                 <div className="space-y-4">
-                                    <h2 className="text-3xl font-serif text-right leading-loose text-emerald-400">
+                                    <h2 className="text-3xl font-arabic text-right leading-loose text-emerald-400">
                                         الْحَمْدُ لِلَّهِ
                                     </h2>
                                     <div className="flex justify-end gap-1">

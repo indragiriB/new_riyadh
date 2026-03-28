@@ -15,6 +15,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/bookmarks', function () {
+    return Inertia\Inertia::render('Quran/Bookmarks');
+})->name('bookmarks');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
